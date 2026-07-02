@@ -36,7 +36,7 @@ button:hover {
 }
 
 table {
-    margin: 0 auto;
+    margin: 0;
     border-collapse: separate;
     border-spacing: 0;
     width: 380px;
@@ -44,6 +44,7 @@ table {
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(44, 62, 80, 0.08);
     overflow: hidden;
+    display: none;
 }
 
 th, td {
@@ -66,6 +67,105 @@ td {
 
 tr:last-child td {
     border-bottom: none;
+}
+
+#mainLayout
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+#greetPanel
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    max-width: 300px;
+    width: 300px;
+}
+
+#greetMessage{
+    background: #6366f1;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    max-width: 200px;
+    display: none;
+}
+
+#HiButton:disabled, #addButton:disabled{
+    opacity:  0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#nameInput{
+    border: none;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgb(99, 102, 241, 0.15);
+    outline: none;
+    color: #374151;
+    width: 200px;
+   
+}
+
+#nameInput::placeholder, #newStudentInput::placeholder{
+    color: #a0aec0;
+}
+
+
+#addPanel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 300px;
+}
+
+#newStudentInput{
+    border: none;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15);
+    outline: none;
+    color: #374151;
+    width: 200px;
+}
+
+#addMessage{
+    color: #6366f1;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+#greetPanel, #addPanel{
+    margin-top: 20px;
+}
+
+#greetPanel button, #addPanel button {
+    margin-top: 2;
+}
+
+@media (max-width: 700px){
+    #mainLayout
+    {
+     flex-direction: column;
+     align-items: center;   
+    }
 }
 
 @media (max-width: 500px) {

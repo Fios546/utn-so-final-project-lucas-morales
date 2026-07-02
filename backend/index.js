@@ -3,7 +3,7 @@ const db = require("./db");
 
 // Define express app
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 // Middleware to parse JSON requests
 app.use(express.json());
@@ -23,6 +23,22 @@ app.get("/api/students", async (req, res) => {
     res.status(500).send("DB error");
   }
 });
+
+
+app.post("/api/students", async (req, res) => {
+  const { name } = req.body;
+
+  try {
+    const result = await db.query(
+      "INSERT INTO students (name) VALUES ($1) RETURNING *", [name]
+    );
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("DB error");
+  }
+});
+
 
 // Start the server
 app.listen(port, () => console.log(`App running on port ${port}`));
